@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product-list',
@@ -6,11 +7,35 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  selectedProduct = '';
-  products = ['Webcam','ipad','samsung']
-
+  today = new Date()
+  selectedProduct: Product | undefined
+  products: Product[] = [
+    {
+      name:'Webcam',
+      price: 100
+    },
+    {
+     name: 'ipad',
+     price: 3000
+    },
+    {
+      name: 'samsung',
+      price: 6565
+    }
+  ]
   onBuy(){
-    window.alert(`Zakupiłeś!`)
+    window.alert(`Zakupiłeś ${this.selectedProduct?.name}!`)
   }
+
+  trackByProducts(index: number, name:string): number{
+    return index
+  }
+  // products = {
+  //   'Webcam': 100,
+  //   'Microphone': 200,
+  //   'Wireless keyboard': 85
+  // };
+  
+
 
 }
