@@ -6,10 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  selectedProduct = 'Super telefon za 5 baniek';
+  selectedProduct = '';
+  products = ['Webcam','ipad','samsung']
 
-  onBuy(name:string){
-    window.alert(`Zakupiłeś ${name}!`)
+  onBuy(){
+    window.alert(`Zakupiłeś!`)
   }
 
 }
